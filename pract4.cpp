@@ -58,17 +58,18 @@ void inorder(Node* root) {
 }
 
 void search(Node* root, int value) {
+    if(root == NULL) {
+        cout << "Search is not successful for value :" << value;
+        return;
+    }
     if (root->data == value) {
         cout << "Search is successful for value :" << value;
     }
     else if (value < root->data) {
         search(root->left, value);
     }
-    else if(value > root->data) {
-        search(root->right, value);
-    }
     else {
-        cout << "Search is not successful for value :" << value;
+        search(root->right, value);
     }
 }
 
@@ -98,7 +99,7 @@ int main() {
             cout << val << " is inserted";
         }
     }
-    cout << endl << "\n2)Find number of nodes in longest path from root\n3)Minimum data value found in the tree\n4)Change a tree so that the roles of the left and right pointers are swapped at every node";
+    cout << endl << "\n2)Find number of nodes in longest path from root\n3)Minimum data value found in the tree\n4)inorder traversal\n5)mirror tree\n6)Search";
     cout << "Enter your choice :";
     cin >> ch;
     switch(ch) {
@@ -112,15 +113,17 @@ int main() {
         case 4:
             cout << "\nInorder tree is :";
             inorder(root);
-            cout << "\nMirror tree is :";
-            mirror(root);
-            inorder(root);
-            cout << "\nThe roles of the left and right pointers are swapped at every node(mirror)\n";
             break;
         case 5:
-            cout << "\nEnter the data to search :";
-            cin >> dd;
-            search(root, dd);
+            cout<< "\nMirror Treee";
+            mirror(root);
+            break;
+        case 6:
+            cout<<"\nSearch tree";
+            search(root,dd);
+            break;
+        default:
+            cout << "Invalid choice";
             break;
     }
     return 0;
