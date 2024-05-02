@@ -2,8 +2,9 @@
 using namespace std;
 #define MAX 100
 
-struct Graph
+class Graph
 {
+public:
     int data[MAX][MAX];
     int vertices;
 
